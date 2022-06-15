@@ -1,7 +1,17 @@
 Software for Reproducible Research
 ================
 
+**Repository for IMS-RETREAT 2022**
+
+This folder contains examples and references for the creation of
+packages, interactive documents and web pages to facilitate
+reproducibility of analysis and distribution of materials among peers.
+
 ## General tricks and toolkit
+
+IMS-repository of useful programming functions
+
+  - Toolkit by Teresa Engelbrecht: …
 
 ## Package Development
 
@@ -21,11 +31,11 @@ IMS-example:
 
   - Consulting Statistischen Ambulanz template
 
-  - Re-analysis template by Jonas
+  - Re-analysis template by Jonas Brugger
 
 References:
 
-…
+  - <https://tysonbarrett.com/Rstats/chapter-9-reproducible-workflow-with-rmarkdown.html>
 
 ## Github websites
 
