@@ -1,7 +1,7 @@
 Software for Reproducible Research
 ================
 
-## GitHub
+## General tricks and toolkit
 
 ## Package Development
 
@@ -15,6 +15,18 @@ References:
     <https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf>
   - Hadley’s book on package development: <https://r-pkgs.org/>
 
+## R-markdown
+
+IMS-example:
+
+  - Consulting Statistischen Ambulanz template
+
+  - Re-analysis template by Jonas
+
+References:
+
+…
+
 ## Github websites
 
 IMS-example:
@@ -24,7 +36,3 @@ IMS-example:
 References:
 
   - Hadley’s book on package development: <https://r-pkgs.org/>
-
-## R-markdown
-
-## General tricks and toolkit
