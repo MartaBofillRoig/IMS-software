@@ -16,7 +16,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Why do I need to build my own package?
 
-...
+Packaging our functions in R packages. Why should I do it?
+
+- is easily executable and shareable code
+- makes reusable R functions
+- includes documentation that describes how to use them 
+<!-- - includes examples to illustrate their use -->
+- makes reproducible R code 
 
 ## How to create an R package in 4 simple steps
 
