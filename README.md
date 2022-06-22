@@ -9,40 +9,35 @@ reproducibility of analysis and distribution of materials among peers.
 
 ## General tricks and toolkit
 
-IMS-repository of useful programming functions
-
-  - Toolkit by Teresa Engelbrecht: …
+-   **IMS-repository** of useful programming functions. Toolkit by
+    Teresa Engelbrecht
 
 ## Package Development
 
-IMS-example:
-
-  - CohortPlat by Elias Meyer: <https://github.com/el-meyer/CohortPlat>
-
-References:
-
-  - Package development with devtools cheatsheet:
-    <https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf>
-  - Hadley’s book on package development: <https://r-pkgs.org/>
+-   Vignette how to create an R package and toy example
+-   **IMS-example**: CohortPlat by Elias Meyer:
+    <https://github.com/el-meyer/CohortPlat>
 
 ## R-markdown
 
-IMS-example:
-
-  - Consulting Statistischen Ambulanz template
-
-  - Re-analysis template by Jonas Brugger
-
-References:
-
-  - <https://tysonbarrett.com/Rstats/chapter-9-reproducible-workflow-with-rmarkdown.html>
+-   Vignette: How to create a markdown document, and where to find some
+    templates
+-   **IMS-examples**:
+    -   Consulting Statistischen Ambulanz template
+    -   Re-analysis template by Jonas Brugger
 
 ## Github websites
 
-IMS-example:
+-   Vignette how to create a website and toy example
+-   **IMS-example**: NCC by Pavla Krotka:
+    <https://pavlakrotka.github.io/NCC/>
 
-  - NCC by Pavla Krotka: <https://pavlakrotka.github.io/NCC/>
+## References
 
-References:
-
-  - Hadley’s book on package development: <https://r-pkgs.org/>
+-   Package development with devtools cheatsheet:
+    <https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf>
+-   Hadley’s book on package development: <https://r-pkgs.org/>
+-   R-markdown:
+    <https://tysonbarrett.com/Rstats/chapter-9-reproducible-workflow-with-rmarkdown.html>
+-   References for websites: Hadley’s book on package development:
+    <https://r-pkgs.org/>
