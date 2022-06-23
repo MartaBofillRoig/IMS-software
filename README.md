@@ -1,7 +1,8 @@
 Software for Reproducible Research
 ================
 
-**Repository for IMS-RETREAT 2022**
+**Repository for [IMS](https://cemsiis.meduniwien.ac.at/ms/)-RETREAT
+2022**
 
 This folder contains examples and references for the creation of
 packages, interactive documents and web pages to facilitate
