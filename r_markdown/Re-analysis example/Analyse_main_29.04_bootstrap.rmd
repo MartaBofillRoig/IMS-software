@@ -1,0 +1,238 @@
+---
+fontsize: 11pt
+geometry: margin=2.5cm
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{xcolor}
+- \usepackage{hyperref}
+- \usepackage{float}
+- \usepackage{inputenc}
+- \usepackage{graphicx}
+- \usepackage{fancyhdr}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{placeins}
+- \pagestyle{fancy}
+output:
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+    number_sections: yes
+    toc: TRUE
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+
+\hypersetup{%
+  colorlinks = true,
+  linkcolor  = black
+}
+
+\rhead{\includegraphics[width=3cm]{B:/Jonas/Dokumente/logoMUW.png}}
+\lhead{\tiny CeMSIIS\newline
+SECTION for MEDICAL STATISTICS\newline
+Spitalgasse 23 / A- 1090 Wien
+}
+
+\begin{table}
+\large
+\centering
+\begin{tabular}{|p{\dimexpr 0.555\linewidth-2\tabcolsep}|
+p{\dimexpr 0.15\linewidth-2\tabcolsep}|p{\dimexpr 0.15\linewidth-2\tabcolsep}|p{\dimexpr 0.145\linewidth-2\tabcolsep}|}
+\hline
+\textbf{Analyse}  &
+\footnotesize \underline{Projektnr:} \newline  22023 &
+\footnotesize \underline {Betreuer:} \newline  J. Brugger    &
+\footnotesize \underline{Datum:}  \newline
+```{r, echo=FALSE, results='asis', warning=FALSE, message=FALSE}
+cat(format(Sys.Date(),"%d.%b %y"))
+```
+\\ \hline
+
+\multicolumn{1}{|p{\dimexpr 0.555\linewidth -2\tabcolsep}|}{\large \textit{\textbf{\newline Dr. Goldbach}}} &
+\multicolumn{3}{p{\dimexpr 0.445\linewidth-2\tabcolsep}|}{\footnotesize \underline {e-mail:} \newline jonas.brugger@meduniwien.ac.at} \\ \hline
+
+\end{tabular}
+\end{table}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+The following analyses was done using the dataset "Alle studies Clean for SPPS use v2.xlsx", sent on 21.03.22. 
+
+Logistic regression models were computed for every endpoint. Presence of fluid was defined as the dependent variable and the fluid volume determined by the AI as the explanatory variable. ROC curves of the logistic regression models were drawn and the area under the curve (AUC) was calculated. An optimal cutoff point was calculated using the Youden-Index [1]. The fluid volume corresponding to every respective cutoff and the total accuracy, sensitivity and specificity was calulated.
+
+In case of the "Protocol T" and "TREND"-studies the data includes follow-up visits of patients. Logistic regression models were calculated under the assumption that observations are independent. As a sensitivity analysis, the same models were calculated using only the observations of each patient at baseline. Additionally, a 95% confidence interval for the area under the curve (AUC) was calulated by repeatedly sampling one observation of each patients and calculating the AUC of the ROC curve of the resulting model. This was done 1000 times for each instance. The confidence interval of the AUC was then defined as the interval between the 2.5 - and the 97.5 percentile of the obtained AUCs.
+
+Statistical analysis was done using R, version 3.6.1 or higher.
+
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(reshape2)
+library(readxl)
+library(lmerTest)
+library(pROC)
+source("B:/Jonas/Useful functions/descriptive.R")
+
+Data <- read_excel("X:/2022/P22023_Goldbach_JB/Daten/Alle studies Clean for SPPS use v3.xlsx") %>% 
+  rename("MM3" = "3MM",
+         "MM6" = "6MM") 
+colnames(Data) <- str_replace_all(colnames(Data), "\\s", "_")
+```
+
+
+```{r, echo=FALSE, include=FALSE, eval=FALSE, warning = FALSE, message=FALSE}
+# Data check -> longitudinal
+
+a <- select(Data, c(Ticket_number, Visit, Eye, SRF_TotalFoV, SRF_CMM, IRF_TotalFoV, IRF_CMM, IRF_3MM, IRF_6MM,
+               IRF_Parafovea, IRF_Perifovea))
+
+a <- Data %>%
+  group_by(Ticket_number) %>% 
+  summarize(a = n())
+
+b <- a$Ticket_number[which(a$a == 20)]
+filter(Data, Ticket_number == b)
+```
+
+
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+# Remove after
+
+Data <- Data %>%
+  mutate(Ticket_number = Patient_ID) %>% 
+  filter(!(SRF_TotalFoV %in% c(10, 999)) & 
+           !(IRF_TotalFoV %in% c(10, 999)) &
+           !(IRF_CMM %in% c(10, 999)) &
+           !(IRF_3MM %in% c(10, 999)) &
+           !(IRF_6MM %in% c(10, 999)) &
+           !(IRF_Parafovea %in% c(10, 999)) &
+           !(IRF_Perifovea %in% c(10, 999)) &
+           !(SRF_CMM %in% c(10, 999))) %>% 
+  rename("Perifovea" = "perifovea",
+         "Parafovea" = "parafovea",
+         "IRF_MM3" = "IRF_3MM",
+         "IRF_MM6" = "IRF_6MM")
+
+Data_trend <- filter(Data, Study == "TREND")
+Data_bright <- filter(Data, Study == "BRIGHTER")
+Data_t <- filter(Data, Study == "Protocol T")
+```
+
+\clearpage
+
+# Brighter
+
+```{r, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
+variables <- c("IRF_TotalFoV", "IRF_CMM", "SRF_TotalFoV", "SRF_CMM")
+study <- "BRIGHTER"
+
+for(variable in variables){
+  knitr::knit_child("Analyse_child_29.04_bootstrap.Rmd", quiet=TRUE) %>% 
+    cat()
+}
+```
+
+
+
+# Protocol T
+
+```{r, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
+variables <- c("IRF_TotalFoV", "IRF_CMM", "SRF_CMM")
+study <- "Protocol T"
+
+for(variable in variables){
+  knitr::knit_child("Analyse_child_29.04_bootstrap.Rmd", quiet=TRUE) %>% 
+    cat()
+}
+```
+
+
+
+# Trend T
+
+```{r, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
+variables <- c("IRF_TotalFoV", "IRF_CMM", "IRF_MM3", "IRF_MM6", "IRF_Perifovea", "IRF_Parafovea", "SRF_TotalFoV")
+study <- "TREND"
+
+for(variable in variables){
+  knitr::knit_child("Analyse_child_29.04_bootstrap.Rmd", quiet=TRUE) %>% 
+    cat()
+}
+```
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+Dat_ai <- Data %>% 
+  select(c(Ticket_number, Study, Visit, Fluid_Type, TotalFoV, CMM, MM3, MM6, Perifovea, Parafovea, Fluid_Type)) %>% 
+  melt(id = c("Ticket_number", "Study", "Visit", "Fluid_Type"), value.name = "AI") %>% 
+  mutate(variable = as.character(variable))
+
+Dat_human <- Data %>% 
+  select(c(Ticket_number, Study, Visit, SRF_TotalFoV, SRF_CMM, IRF_TotalFoV, IRF_CMM, IRF_MM3, IRF_MM6,
+           IRF_Parafovea, IRF_Perifovea)) %>% 
+  melt(id = c("Ticket_number", "Visit", "Study"), value.name = "human") %>% 
+  separate(variable, into = c("Fluid_Type", "variable"), sep = "_")
+
+Dat_human <- Dat_human[!duplicated(Dat_human) ,]
+
+Dat_desc <- right_join(Dat_ai, Dat_human, by = c("Fluid_Type", "Study", "Ticket_number", "variable", "Visit"))
+
+Desc <- Dat_desc %>% 
+  group_by(Study, Fluid_Type, variable) %>% 
+  summarize(Fluid_yes = paste0(sum(human == 1, na.rm = TRUE), " (",
+                               sprintf("%.2f", round(100*sum(human == 1, na.rm = TRUE)/sum(!is.na(human)), 2)),
+                                       ")"),
+            Fluid_no = paste0(sum(human == 0, na.rm = TRUE), " (",
+                              sprintf("%.2f", round(100*sum(human == 0, na.rm = TRUE)/sum(!is.na(human)), 2)),
+                                      ")"),
+            vol_AI1 = paste0(sprintf("%.2f", round(median(AI[human == 1]), 2)), " (",
+                             sprintf("%.2f", round(quantile(AI[human == 1], .25, na.rm = TRUE), 2)), "-",
+                             sprintf("%.2f", round(quantile(AI[human == 1], .75, na.rm = TRUE), 2)), ")"),
+            vol_AI2 = paste0(sprintf("%.2f", round(median(AI[human == 0]), 2)), " (",
+                             sprintf("%.2f", round(quantile(AI[human == 0], .25, na.rm = TRUE), 2)), "-",
+                             sprintf("%.2f", round(quantile(AI[human == 0], .75, na.rm = TRUE), 2)), ")")) %>% 
+  filter(!(vol_AI1 == "NA (NA-NA)")) 
+```
+
+\clearpage
+
+# Descriptive statistics
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+kable(Desc,
+      booktabs = T,
+      linesep = "",
+      digits = 2,
+      col.names = c("Study", "Fluid Type", "Localisation", "Fluid yes (n(%))", "Fluid no (n(%))",
+                    "Mean volume AI if fluid present (median(IQR))",
+                    "Mean volume AI if no fluid present (median(IQR))"),
+      align = c(rep("l", 3), rep("c", 4))) %>% 
+  kable_styling(full_width = TRUE, font_size = 6) %>% 
+  column_spec(1, width = "1.5cm") %>% 
+  column_spec(2, width = "1.4cm") %>% 
+  column_spec(3, width = "1.3cm") %>% 
+  column_spec(4:5, width = "1.8cm")
+```
+
+
+# References
+
+[1] YOUDEN, William J. Index for rating diagnostic tests. Cancer, 1950, 3. Jg., Nr. 1, S. 32-35.
+
+

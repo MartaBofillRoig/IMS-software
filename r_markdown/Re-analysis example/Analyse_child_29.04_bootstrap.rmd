@@ -1,0 +1,14 @@
+```{r results='asis', echo=FALSE}
+cat(paste0("\n", "##", variable, "\n"))
+```
+
+```{r, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
+cameras <- c(2, 1, 0)
+cam_names <- c("Both cameras", "Camera 0", "Camera 1")
+
+for(i in seq(1, length(cameras))){
+  camera <- cameras[i]
+  knitr::knit_child("Analyse_child2_29.04_bootstrap.rmd", quiet=TRUE) %>% 
+    cat()
+}
+```
