@@ -1,0 +1,50 @@
+---
+title: "R Package Development"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{R Package Development}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Why do I need to build my own package?
+
+Packaging our functions in R packages. Why should I do it?
+
+- is easily executable and shareable code
+- makes reusable R functions
+- includes documentation that describes how to use them 
+<!-- - includes examples to illustrate their use -->
+- makes reproducible R code 
+
+## How to create an R package in 4 simple steps
+
+1. Define the working directory
+```{r, eval=F} 
+filepath <- "C:/Users/pavla/Nextcloud/GitKraken/IMS-software/ToyPackage"
+```
+
+2. Create r package folder
+```{r, eval=F} 
+usethis::create_package()  
+```
+
+3. Copy in R folder the functions of the r package 
+```{r, eval=F} 
+setwd(filepath)
+devtools::document()
+devtools::load_all() 
+```
+
+4. Build and check the package
+```{r, eval=F} 
+devtools::build(pkg = filepath, path = NULL, binary = FALSE, manual = TRUE)
+devtools::check_built(path = filepath, cran=TRUE, manual = TRUE)
+devtools::build_manual(pkg = filepath, path = NULL)
+```
+
