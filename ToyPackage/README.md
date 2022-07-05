@@ -1,5 +1,7 @@
 
-# Software for Reproducible Research <img src="man/figures/IMS_hexsticker.png" align="right" height="200" />
+# Software for Reproducible Research
+
+<img src="man/figures/IMS_hexsticker.png" align="right" height="200" />
 
 **Repository for [IMS](https://cemsiis.meduniwien.ac.at/ms/)-RETREAT
 2022**
