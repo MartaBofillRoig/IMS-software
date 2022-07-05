@@ -1,6 +1,7 @@
 ---
 title: "R General Tips and Tricks"
 output: rmarkdown::html_vignette
+author: "Teresa Engelbrecht, Marta Bofill Roig, Pavla Krotka"
 vignette: >
   %\VignetteIndexEntry{R Package Development}
   %\VignetteEngine{knitr::rmarkdown}
@@ -13,11 +14,41 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# 
+# General hacks & shortcuts
+
+## Multi-line editing
+
+- Use `alt` to mark multiple lines 
 
 
-#
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/EikoFried/status/1069646675814375425", widget_type = "video")
+```
 
+- Use `ctrl + alt_left + mouse_left` to spawn multiple cursors
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Chr_Koenig/status/1512352942443143172", widget_type = "video", hide_thread = T, plain = T)
+```
+
+
+## Commenting blocks
+
+
+- Use `ctrl + Shift + c` to comment/uncomment an entire code block
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Chr_Koenig/status/1512352922587312133", widget_type = "video", hide_thread = T)
+```
+
+
+## Moving selections
+
+- Use `alt_left + up/down` to move selections up and down
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Chr_Koenig/status/1512352957186125828", widget_type = "video", hide_thread = T)
+```
 
 
 # Useful resources
@@ -26,11 +57,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 
-- [CRAN Explorer](https://shiny.rstudio.com/gallery/cran-explorer.html)
+- [CRAN Explorer](https://shiny.rstudio.com/gallery/cran-explorer.html) 
 
 ## Simulation of clinical trials
 
-- [RCT Simulations Github Repository](https://github.com/aalthous/RCT-Simulations)
+- [RCT Simulations Github Repository](https://github.com/aalthous/RCT-Simulations) 
 
 ## Parallel computing & Code optimisation
 
@@ -39,12 +70,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [Profvis - Interactive Visualizations for Profiling R Code](https://rstudio.github.io/profvis/)
 
-## Twitter accounts
+## Twitter accounts 
 
 - [One R Tip a Day](https://twitter.com/RLangTip)
 
 - [Rstats](https://twitter.com/rstatstweet)
 
-- [RStudio Tips](https://twitter.com/rstudiotips)
+- [RStudio Tips](https://twitter.com/rstudiotips) 
 
 - [RStudio](https://twitter.com/rstudio)
