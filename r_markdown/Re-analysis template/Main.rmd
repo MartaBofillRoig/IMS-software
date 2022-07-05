@@ -8,7 +8,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Statisitcal analysis
+# Statistical analysis
 
 ```{r}
 # Do data manipulation here
