@@ -1,5 +1,5 @@
 Package: ToyPackage
-Title: An example package to showcase building R-packages
+Title: An example package to showcase building R-packages at the IMS Staff Retreat 2022
 Version: 0.0.0.1
 Authors@R:
     c(person(given = "Pavla",
@@ -7,7 +7,9 @@ Authors@R:
            role = c("aut", "cre"),
            email = "pavla.krotka@meduniwien.ac.at",
            comment = c(ORCID = "0000-0001-5727-4270")),
-	person("Marta", "Bofill Roig", email = "marta.bofillroig@meduniwien.ac.at", role = c("aut"), comment = c(ORCID = "0000-0002-4400-7541")))
+	person("Marta", "Bofill Roig", email = "marta.bofillroig@meduniwien.ac.at", role = c("aut"), comment = c(ORCID = "0000-0002-4400-7541")),
+	person("Jonas", "Brugger", email = "jonas.brugger@meduniwien.ac.at", role = c("aut")),
+	person("Teresa", "Engelbrecht", email = "teresa.engelbrecht@meduniwien.ac.at", role = c("aut")))
 Description: This toy package consists of one function and is intended as an example for creating R-packages.
 License: MIT + file LICENSE
 Encoding: UTF-8
