@@ -1,6 +1,7 @@
 ---
 title: "R Markdown tricks"
 output: rmarkdown::html_vignette
+author: "Jonas Brugger, Pavla Krotka"
 vignette: >
   %\VignetteIndexEntry{R Markdown tricks}
   %\VignetteEngine{knitr::rmarkdown}
@@ -22,10 +23,6 @@ ${\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$
 
 
 ## Styler addin
-
-```{r}
-install.packages("styler")
-```
 
 
 ![](Style1.jpg)
