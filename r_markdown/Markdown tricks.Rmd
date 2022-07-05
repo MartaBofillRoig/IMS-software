@@ -1,0 +1,64 @@
+---
+title: "R Package Websites"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{R Package Websites}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+## Drag and drop formulas from Wikipedia
+
+
+![](Bino1.jpg)
+
+
+![](Bino2.jpg)
+
+
+${\displaystyle f(k,n,p)=\Pr(k;n,p)=\Pr(X=k)={\binom {n}{k}}p^{k}(1-p)^{n-k}}$
+
+
+
+## Styler addin
+
+
+![](Style1.jpg)
+
+
+![](Style2.jpg)
+
+
+## Write text in chunks with knit_expand()
+
+
+```{r}
+x <- 5
+```
+
+```{r}
+knitr::knit_expand(text = "x equals {{x}}.")
+```
+
+```{r, results='asis'}
+cat(knitr::knit_expand(text = "x equals {{x}}."))
+```
+
+
+## Early knitting with knit_exit().
+
+
+![](Knitexit.jpg)
+
+```{r}
+x <- 5
+```
+
+`r knitr::knit_exit()`
+
+```{r}
+rm(x)
+x
+```
+
