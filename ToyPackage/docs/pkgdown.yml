@@ -2,7 +2,8 @@ pandoc: 2.17.1.1
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
+  Markdown tricks: Markdown tricks.html
   r_pkg: r_pkg.html
   website: website.html
-last_built: 2022-07-04T13:28Z
+last_built: 2022-07-05T11:03Z
 
