@@ -1,0 +1,10 @@
+```{r results='asis'}
+cat(paste0("\n", "## ", i, "\n"))
+```
+
+
+```{r}
+f <- paste0(i, "~ wt")
+mod <- lm(f, mtcars)
+summary(mod)
+```

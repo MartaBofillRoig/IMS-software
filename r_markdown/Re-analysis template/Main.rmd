@@ -1,0 +1,26 @@
+---
+output:
+  pdf_document:
+    number_sections: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Statisitcal analysis
+
+```{r}
+# Do data manipulation here
+```
+
+
+```{r, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+endpoints <- c("mpg", "cyl","hp")
+
+for(i in endpoints){
+  knitr::knit_child("Child.Rmd", quiet=TRUE) %>% 
+    cat()
+}
+```
