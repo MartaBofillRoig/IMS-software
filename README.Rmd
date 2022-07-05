@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# Software for Reproducible Research - IMS Staff Retreat 2022 <img src="ToyPackage/man/figures/IMS_hexsticker.png" align="right" height="200" />
+# Software for Reproducible Research <img src="ToyPackage/man/figures/IMS_hexsticker.png" align="right" height="200" />
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
