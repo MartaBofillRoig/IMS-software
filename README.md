@@ -1,5 +1,5 @@
-Software for Reproducible Research
-================
+
+# Software for Reproducible Research - IMS Staff Retreat 2022 <img src="ToyPackage/man/figures/IMS_hexsticker.png" align="right" height="200" />
 
 **Repository for [IMS](https://cemsiis.meduniwien.ac.at/ms/)-RETREAT
 2022**
