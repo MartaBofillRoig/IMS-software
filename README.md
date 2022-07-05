@@ -1,7 +1,5 @@
 
-# Software for Reproducible Research
-
-<img src="ToyPackage/man/figures/IMS_hexsticker.png" align="right" height="200" />
+# Software for Reproducible Research <img src="ToyPackage/man/figures/IMS_hexsticker.png" align="right" height="200" />
 
 **Repository for [IMS](https://cemsiis.meduniwien.ac.at/ms/)-RETREAT
 2022**
@@ -26,7 +24,7 @@ reproducibility of analysis and distribution of materials among peers.
 -   Vignette: How to create a markdown document, and where to find some
     templates
 -   **IMS-examples**:
-    -   Consulting Statistischen Ambulanz template
+    -   R-markdown tips and tricks by Jonas Brugger
     -   Re-analysis template by Jonas Brugger
 
 ## Github websites
