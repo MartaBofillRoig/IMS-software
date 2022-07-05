@@ -4,6 +4,7 @@ pkgdown_sha: ~
 articles:
   Markdown tricks: Markdown tricks.html
   r_pkg: r_pkg.html
+  toolkit: toolkit.html
   website: website.html
-last_built: 2022-07-05T11:03Z
+last_built: 2022-07-05T14:21Z
 

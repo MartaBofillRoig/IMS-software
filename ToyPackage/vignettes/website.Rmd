@@ -1,6 +1,7 @@
 ---
 title: "R Package Websites"
 output: rmarkdown::html_vignette
+author: "Marta Bofill Roig, Pavla Krotka"
 vignette: >
   %\VignetteIndexEntry{R Package Websites}
   %\VignetteEngine{knitr::rmarkdown}

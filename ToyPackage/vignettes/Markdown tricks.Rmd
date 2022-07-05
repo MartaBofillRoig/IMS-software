@@ -1,6 +1,7 @@
 ---
 title: "R Markdown tricks"
 output: rmarkdown::html_vignette
+author: "Jonas Brugger, Pavla Krotka"
 vignette: >
   %\VignetteIndexEntry{R Markdown tricks}
   %\VignetteEngine{knitr::rmarkdown}
