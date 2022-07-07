@@ -4,10 +4,11 @@
 
 
 # Working directory
-filepath <- "C:/Users/pavla/Nextcloud/GitKraken/IMS-software/ToyPackage"
+# filepath <- "C:/Users/pavla/Nextcloud/GitKraken/IMS-software/ToyPackage"
+filepath <-"C:/Users/mbofi/Desktop/example"
 
 # Create r package folder
-usethis::create_package()
+usethis::create_package(filepath)
 
 # Copy in R folder the functions of the r package 
 setwd(filepath)
