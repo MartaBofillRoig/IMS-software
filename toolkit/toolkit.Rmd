@@ -53,7 +53,7 @@ tweetrmd::tweet_embed("https://twitter.com/Chr_Koenig/status/1512352957186125828
 
 # Useful resources
 
-## Gereral
+## General
 
 - [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 
