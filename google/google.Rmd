@@ -102,12 +102,11 @@ tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/15465047220555161
 tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504709401300997", hide_thread = T)
 ```
 
-- Play games in Google Search
+- Play fun games in Google Search
 
 ```{r, echo=FALSE}
 tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504715776565248", hide_thread = T)
 ```
-
 
 - Use `*` in place of words you do not know
 
