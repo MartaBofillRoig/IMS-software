@@ -2,9 +2,10 @@ pandoc: 2.17.1.1
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
+  google: google.html
   Markdown tricks: Markdown tricks.html
   r_pkg: r_pkg.html
   toolkit: toolkit.html
   website: website.html
-last_built: 2022-07-05T16:13Z
+last_built: 2022-08-23T13:00Z
 

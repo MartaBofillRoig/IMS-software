@@ -1,0 +1,120 @@
+---
+title: "Google General Tips and Tricks"
+output: rmarkdown::html_vignette
+author: "Teresa Engelbrecht, Marta Bofill Roig, Pavla Krotka"
+vignette: >
+  %\VignetteIndexEntry{Google General Tips and Tricks}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# General hacks & shortcuts
+
+## Search for exact request 
+
+- Use quotes to search for your exact request, not just the words in any order
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504659057012736", hide_thread = TRUE)
+```
+
+
+## Search specific kind or location
+
+- Use `filetype:pdf` to find all PDFs related to your search request
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504679789453312", hide_thread = TRUE)
+```
+
+- Use `site:xxx` to search a specific site xxx
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504665956700162", hide_thread = TRUE)
+```
+
+- Add `@` in front of a word to search social media
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504686487752705", hide_thread = TRUE)
+```
+
+- Tune your image search to specific colour, size, copyright, time oder type
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504696164036608", hide_thread = TRUE)
+```
+
+- Use `-` to exclude words or phrases from the results
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504724878225410", hide_thread = TRUE)
+```
+
+
+## Comparison in searches
+
+- Use `related:xxx` to find sites related to xxx
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504672751472641", hide_thread = T)
+```
+
+- Use `VS` to compare two or more things
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504702887464960", hide_thread = T)
+```
+
+- Use `~` in front of a word to find synonyms
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504729999552513", hide_thread = T)
+```
+
+
+## Create Google Alert
+
+- To get notified whenever a keyword is published on the web create a [Google Alert](https://www.google.com/alerts)
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504722055516160", hide_thread = T)
+```
+
+
+
+# For slower days
+
+- Use Google search to do math
+
+- Use Google for a reverse Image Search
+  Upload an image file and find information on that image
+
+- Use `[number]=language` to spell out numbers in specified language
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504709401300997", hide_thread = T)
+```
+
+- Play fun games in Google Search
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504715776565248", hide_thread = T)
+```
+
+- Use `*` in place of words you do not know
+
+```{r, echo=FALSE}
+tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504737851248641", hide_thread = T)
+```
+
+
+# Reference
+
+- [Twitter Thread](https://twitter.com/Infinitians1/status/1546504649624064000?t=hWHi699aZMOb9U7NGNDoOQ&s=08)
