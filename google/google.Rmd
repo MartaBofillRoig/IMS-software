@@ -3,7 +3,7 @@ title: "Google General Tips and Tricks"
 output: rmarkdown::html_vignette
 author: "Teresa Engelbrecht, Marta Bofill Roig, Pavla Krotka"
 vignette: >
-  %\VignetteIndexEntry{R Package Development}
+  %\VignetteIndexEntry{Google General Tips and Tricks}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

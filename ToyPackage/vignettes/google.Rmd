@@ -24,6 +24,8 @@ knitr::opts_chunk$set(echo = TRUE)
 tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504659057012736", hide_thread = TRUE)
 ```
 
+- Use two periods within two numbers to search for ranges:
+  E.g. Books 1990..2000
 
 ## Search specific kind or location
 
@@ -78,6 +80,7 @@ tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/15465047028874649
 tweetrmd::tweet_embed("https://twitter.com/Infinitians1/status/1546504729999552513", hide_thread = T)
 ```
 
+- Use `|` (vertical bar) or `OR` to generalize searches. 
 
 ## Create Google Alert
 
